@@ -19,6 +19,19 @@ class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; //check for reference
+        if (obj == null || getClass() != obj.getClass()) return false; //check for null and class type
+        User user = (User) obj; //typecast
+        return name != null && name.equals(user.name); //check for name equality
+    }
 }
 
 class Expense {
